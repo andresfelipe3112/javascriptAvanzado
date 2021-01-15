@@ -1,0 +1,58 @@
+<body>
+  <script>
+    const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+
+    // Add your code below this line
+
+
+d3.select("body")  //seleciona los elementos
+.selectAll("h2") // selecciona los elementos tag
+.data(dataset)  // x el numero de elemento de la constante crea el mismo número de elemnto
+.enter()
+.append("h2")
+.text("New Title");
+//Cuando enter()se combina con el data()método, observa los elementos seleccionados de la página y 
+//los compara con el número de elementos de datos del conjunto.
+//Si hay menos elementos que elementos de datos, crea los elementos que faltan.
+
+    // Add your code above this line
+
+---------------------
+
+  /*  En el desafío anterior, creó un nuevo h2elemento para cada elemento de la datasetmatriz, 
+    pero todos contenían el mismo texto, "Nuevo título". Esto se debe a que no ha hecho uso 
+    de los datos vinculados a cada uno de los h2elementos.
+
+El text()método D3 puede tomar una cadena o una función de devolución de llamada como argumento:
+
+selection.text((d) => d)
+
+En el ejemplo anterior, el parámetro se drefiere a una sola entrada en el conjunto de datos 
+al que está vinculada una selección.
+
+Usando el ejemplo actual como contexto, el primer h2elemento está vinculado 
+a 12, el segundo h2elemento está vinculado a 31, el tercer h2elemento está vinculado a 
+22, y así sucesivamente.*/
+
+
+const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+
+d3.select("body").selectAll("h2")
+  .data(dataset)
+  .enter()
+  .append("h2")
+  // Add your code below this line
+
+  .text((d)=>d + " USD")
+
+  // Add your code above this line
+
+  .style("font-family","verdana") //Agregar estilos desde js
+  .style("color","blue") //Agrega stylo
+  .style("color",(d)=> d>20?"red":"green")
+  .attr("class", "bar");  //agrega clase
+  .style('height', d => `${d}px`) //
+  </script>
+</body>
+
+
